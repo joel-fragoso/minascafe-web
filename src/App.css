@@ -1,0 +1,20 @@
+:root {
+  --color-light-salmon: #e9c6af;
+  --color-gray: #a7a5a4;
+  --color-dark-brown: #241f1c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: var(--color-dark-brown);
+}
