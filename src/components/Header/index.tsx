@@ -6,7 +6,7 @@ const Header: FC = () => {
   return (
     <>
       <div className="banner" />
-      <header className="header" id="header">
+      <header className="header">
         <figure>
           <img src={LogoImg} alt="Minas Café logo" />
         </figure>
