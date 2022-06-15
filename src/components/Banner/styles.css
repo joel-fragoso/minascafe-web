@@ -1,4 +1,5 @@
 .banner {
-  background-color: var(--color-light-salmon);
+  width: 100%;
   height: 7.2rem;
+  background-color: #e9c6af;
 }

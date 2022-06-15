@@ -1,0 +1,136 @@
+.accordion {
+  margin-top: 2.1rem;
+}
+
+.accordion__item {
+  border-bottom: 1px solid #35312e;
+}
+
+.accordion__item:first-child {
+  border-top: 1px solid #35312e;
+}
+
+.accordion__button {
+  width: 100%;
+  padding-top: 2.1rem;
+  padding-bottom: 2.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #e9c6af;
+}
+
+.accordion__button::after {
+  content: '\2b';
+  margin-left: auto;
+  font-family: "Font Awesome 6 Free";
+  font-size: 1.8rem;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.accordion__button--is-open::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.accordion__icon {
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+}
+
+.accordion__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e9c6af;
+}
+
+.accordion__content {
+  /* max-height: 0; */
+  overflow: hidden;
+  -webkit-transition: max-height .2s ease-in-out;
+  transition: max-height .2s ease-in-out;
+}
+
+.product__title, .product__price {
+  color: #eeeede;
+}
+
+.product {
+  margin-bottom: 1.6rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto max-content;
+      grid-template-columns: auto -webkit-max-content;
+      grid-template-columns: auto max-content;
+      grid-template-areas: 'title price';
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 0 .25rem;
+}
+
+.product__title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+  position: relative;
+  overflow: hidden;
+}
+
+.product__title::after {
+  color: #a7a5a4;
+  position: absolute;
+  padding-left: .25ch;
+  text-align: right;
+  content: "  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .";
+}
+
+.product__price {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: price;
+  margin-left: 0.15em;
+  font-weight: 700;
+}
+
+@media (min-width: 767px) {
+  .accordion {
+    margin-top: 2.4rem;
+  }
+
+  .accordion__inner {
+    width: 68rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .accordion__title {
+    font-size: 1.8rem;
+  }
+
+  .accordion__icon {
+    margin-right: 1rem;
+  }
+
+  .accordion__button {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+  }
+
+  .accordion__button:hover {
+    color: #d7986f;
+  }
+
+  .accordion__button--is-open::after {
+    color: #d7986f;
+  }
+}
+
