@@ -1,0 +1,20 @@
+.content-category {
+  border-top: 0.1rem var(--color-gray-brown) solid;
+  border-bottom: 0.1rem var(--color-gray-brown) solid;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.category-title {
+  font-size: 2rem;
+  color: var(--color-light-salmon);
+  cursor: pointer;
+}
+
+.category-product {
+  display: none;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-white-yellow);
+}
