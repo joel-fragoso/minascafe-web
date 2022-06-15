@@ -13,10 +13,6 @@
   border-radius: 0.8rem;
 }
 
-.banner {
-  background-color: var(--color-light-salmon);
-  height: 7.2rem;
-}
 
 .header-title {
   margin-top: 1.6rem;
