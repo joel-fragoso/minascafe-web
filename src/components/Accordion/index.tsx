@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
+import formatCurrency from '../../utils/formatCurrency';
 import './styles.css';
 
 interface ICategory {
@@ -10,6 +11,7 @@ interface ICategory {
 interface IProduct {
   id: string;
   name: string;
+  price: number;
   category: ICategory;
 }
 
@@ -73,7 +75,9 @@ const Accordion: FC = () => {
                   category.id === product.category.id && (
                     <p className="product" key={product.id}>
                       <span className="product__title">{product.name}</span>
-                      {/* <span className="product__price">R$ 2,50</span> */}
+                      <span className="product__price">
+                        {formatCurrency.format(product.price)}
+                      </span>
                     </p>
                   ),
               )}
