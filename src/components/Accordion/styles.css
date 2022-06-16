@@ -1,13 +1,14 @@
 .accordion {
   margin-top: 2.1rem;
+  font-size: 1.6rem;
 }
 
 .accordion__item {
-  border-bottom: 1px solid #35312e;
+  border-bottom: 1px solid var(--color-gray-brown);
 }
 
 .accordion__item:first-child {
-  border-top: 1px solid #35312e;
+  border-top: 1px solid var(--color-gray-brown);
 }
 
 .accordion__button {
@@ -20,14 +21,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #e9c6af;
+  color: var(--color-light-salmon);
 }
 
 .accordion__button::after {
   content: '\2b';
   margin-left: auto;
   font-family: "Font Awesome 6 Free";
-  font-size: 1.8rem;
+  /* Fix Me */
+  font-size: 2.8rem;
+  font-weight: bolder;
   -webkit-transition: -webkit-transform .2s ease-in-out;
   transition: -webkit-transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
@@ -47,18 +50,22 @@
 .accordion__title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #e9c6af;
+  color: var(--color-light-salmon);
 }
 
 .accordion__content {
-  /* max-height: 0; */
+  max-height: 0;
   overflow: hidden;
-  -webkit-transition: max-height .2s ease-in-out;
-  transition: max-height .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.accordion__content--is-open {
+ max-height: 100%;
 }
 
 .product__title, .product__price {
-  color: #eeeede;
+  color: var(--color-white-yellow);
 }
 
 .product {
@@ -84,7 +91,7 @@
 }
 
 .product__title::after {
-  color: #a7a5a4;
+  color: var(--color-gray);
   position: absolute;
   padding-left: .25ch;
   text-align: right;
@@ -126,11 +133,11 @@
   }
 
   .accordion__button:hover {
-    color: #d7986f;
+    color: var(--color-orange-brown);
   }
 
   .accordion__button--is-open::after {
-    color: #d7986f;
+    color: var(--color-orange-brown);
   }
 }
 

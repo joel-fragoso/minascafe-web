@@ -4,6 +4,7 @@
   --color-dark-brown: #241f1c;
   --color-gray-brown: #35312e;
   --color-white-yellow: #eeeede;
+  --color-orange-brown: #d7986f;
 }
 
 *,
@@ -34,7 +35,7 @@ html {
 
 body {
   line-height: 1.5;
-  background-color: #241f1c;
+  background-color: var(--color-dark-brown);
 }
 
 input,

@@ -8,7 +8,7 @@
 
 .header__title {
   font-size: 2.1rem;
-  color: #e9c6af;
+  color: var(--color-light-salmon);
 }
 
 @media (min-width: 767px) {
@@ -19,7 +19,7 @@
 
 .header__description {
   font-size: 1.2rem;
-  color: #a7a5a4;
+  color: var(--color-gray);
 }
 
 @media (min-width: 767px) {
