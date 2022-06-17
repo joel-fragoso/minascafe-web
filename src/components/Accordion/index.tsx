@@ -1,11 +1,24 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import * as FontAwesome from 'react-icons/fa';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
 import './styles.css';
 
+interface IFontAwesomeProps {
+  iconName: string;
+}
+
+const Icon = ({ iconName }: IFontAwesomeProps) => {
+  const icon = React.createElement(
+    FontAwesome[iconName as keyof typeof FontAwesome],
+  );
+  return icon;
+};
+
 interface ICategory {
   id: string;
   name: string;
+  icon: string;
 }
 
 interface IProduct {
@@ -65,7 +78,7 @@ const Accordion: FC = () => {
               className="accordion__button"
             >
               <div className="accordion__icon">
-                <i className="fa-solid fa-mug-saucer" />
+                <Icon iconName="FaMugHot" />
               </div>
               <div className="accordion__title">{category.name}</div>
             </button>
