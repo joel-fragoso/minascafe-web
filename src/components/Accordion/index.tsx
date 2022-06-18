@@ -78,7 +78,7 @@ const Accordion: FC = () => {
               className="accordion__button"
             >
               <div className="accordion__icon">
-                <Icon iconName="FaMugHot" />
+                <Icon iconName={category.icon ? category.icon : 'FaBars'} />
               </div>
               <div className="accordion__title">{category.name}</div>
             </button>
