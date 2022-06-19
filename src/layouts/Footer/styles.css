@@ -1,0 +1,122 @@
+.footer__copyright {
+  font-weight: 400;
+}
+
+.footer__icon {
+  font-family: "Font Awesome 6 Free";
+}
+
+.footer__icon {
+  font-weight: 700;
+}
+
+.footer__icon {
+  height: 1.6rem;
+  color: var(--color-light-salmon);
+}
+
+@media (min-width: 767px) {
+  .footer__icon {
+    height: 1.8rem;
+  }
+}
+
+.fa-heart {
+  height: 1.4rem;
+  vertical-align: -0.175rem;
+}
+
+.footer__copyright {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+}
+
+@media (min-width: 767px) {
+  .footer__copyright {
+    font-size: 1.4rem;
+  }
+}
+
+.footer__copyright {
+  margin-top: 2.1rem;
+  padding-top: 2.1rem;
+  padding-bottom: 2.1rem;
+  text-align: center;
+  border-top: 1px solid var(--color-gray-brown);
+}
+
+@media (min-width: 767px) {
+  .footer__copyright {
+    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+}
+
+
+.footer__social {
+  margin-top: 2.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 767px) {
+  .footer__social {
+    margin-top: 2.4rem;
+  }
+}
+
+.footer__inner {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+@media (min-width: 767px) {
+  .footer__inner {
+    width: 68rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.footer__link {
+  width: 4rem;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-gray-brown);
+}
+
+.footer__link:not(:first-child) {
+  margin-left: 0.8rem;
+}
+
+@media (min-width: 767px) {
+  .footer__link {
+    width: 4.8rem;
+    height: 4.8rem;
+    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+  }
+  .footer__link:hover {
+    color: var(--color-orange-brown);
+  }
+  .footer__link:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
