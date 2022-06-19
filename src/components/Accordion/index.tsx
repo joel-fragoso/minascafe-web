@@ -77,9 +77,11 @@ const Accordion: FC = () => {
               onClick={handleShowAccordion}
               className="accordion__button"
             >
-              <div className="accordion__icon">
-                <Icon iconName={category.icon ? category.icon : 'FaBars'} />
-              </div>
+              {category.icon && (
+                <div className="accordion__icon">
+                  <Icon iconName={category.icon} />
+                </div>
+              )}
               <div className="accordion__title">{category.name}</div>
             </button>
             <div className="accordion__content">
