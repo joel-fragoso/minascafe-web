@@ -51,16 +51,18 @@ const Accordion: FC = () => {
 
   const handleShowAccordion = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
+      const content = event.currentTarget.nextElementSibling;
       if (isOpen) {
         event.currentTarget.classList.remove('accordion__button--is-open');
-        event.currentTarget.nextElementSibling?.classList.remove(
-          'accordion__content--is-open',
-        );
+
+        if (content) (content as HTMLElement).style.maxHeight = '0px';
       } else {
         event.currentTarget.classList.add('accordion__button--is-open');
-        event.currentTarget.nextElementSibling?.classList.add(
-          'accordion__content--is-open',
-        );
+
+        if (content)
+          (
+            content as HTMLElement
+          ).style.maxHeight = `${content.scrollHeight}px`;
       }
       setIsOpen(!isOpen);
     },
