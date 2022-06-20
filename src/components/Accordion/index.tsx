@@ -31,7 +31,6 @@ interface IProduct {
 const Accordion: FC = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCategories() {
@@ -39,6 +38,7 @@ const Accordion: FC = () => {
 
       setCategories(response.data.data);
     }
+
     async function getProducts() {
       const response = await api.get('/produtos');
 
@@ -51,22 +51,16 @@ const Accordion: FC = () => {
 
   const handleShowAccordion = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      const content = event.currentTarget.nextElementSibling;
-      if (isOpen) {
-        event.currentTarget.classList.remove('accordion__button--is-open');
+      event.currentTarget.classList.toggle('accordion__button--is-open');
+      const content = event.currentTarget.nextElementSibling as HTMLElement;
 
-        if (content) (content as HTMLElement).style.maxHeight = '0px';
+      if (content.style.maxHeight) {
+        content.style.maxHeight = '';
       } else {
-        event.currentTarget.classList.add('accordion__button--is-open');
-
-        if (content)
-          (
-            content as HTMLElement
-          ).style.maxHeight = `${content.scrollHeight}px`;
+        content.style.maxHeight = `${content.scrollHeight}px`;
       }
-      setIsOpen(!isOpen);
     },
-    [isOpen],
+    [],
   );
 
   return (
