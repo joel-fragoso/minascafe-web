@@ -3,6 +3,11 @@
   font-size: 1.6rem;
 }
 
+.accordion__inner {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
 .accordion__item {
   border-bottom: 1px solid var(--color-gray-brown);
 }
@@ -21,23 +26,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  justify-content: space-between;
   color: var(--color-light-salmon);
 }
 
-.accordion__button::after {
-  content: '\2b';
-  margin-left: auto;
-  font-family: "Font Awesome 6 Free";
-  /* Fix Me */
-  font-size: 2.8rem;
-  font-weight: bolder;
+.button__icon {
+  font-size: 1.8rem;
   -webkit-transition: -webkit-transform .2s ease-in-out;
   transition: -webkit-transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-.accordion__button--is-open::after {
+.button__icon--is-open {
+  color: var(--color-orange-brown);
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -48,9 +50,12 @@
 }
 
 .accordion__title {
+  display: flex;
+  align-items: center;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-light-salmon);
+  color: inherit;
 }
 
 .accordion__content {
@@ -58,10 +63,6 @@
   overflow: hidden;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-}
-
-.accordion__content--is-open {
-  max-height: 100%;
 }
 
 .product__title, .product__price {

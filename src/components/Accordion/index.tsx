@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import * as FontAwesome from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
 import './styles.css';
@@ -31,7 +32,6 @@ interface IProduct {
 const Accordion: FC = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCategories() {
@@ -39,6 +39,7 @@ const Accordion: FC = () => {
 
       setCategories(response.data.data);
     }
+
     async function getProducts() {
       const response = await api.get('/produtos');
 
@@ -51,20 +52,18 @@ const Accordion: FC = () => {
 
   const handleShowAccordion = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      if (isOpen) {
-        event.currentTarget.classList.remove('accordion__button--is-open');
-        event.currentTarget.nextElementSibling?.classList.remove(
-          'accordion__content--is-open',
-        );
+      event.currentTarget
+        .querySelector('.button__icon')
+        ?.classList.toggle('button__icon--is-open');
+      const content = event.currentTarget.nextElementSibling as HTMLElement;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = '';
       } else {
-        event.currentTarget.classList.add('accordion__button--is-open');
-        event.currentTarget.nextElementSibling?.classList.add(
-          'accordion__content--is-open',
-        );
+        content.style.maxHeight = `${content.scrollHeight}px`;
       }
-      setIsOpen(!isOpen);
     },
-    [isOpen],
+    [],
   );
 
   return (
@@ -77,10 +76,15 @@ const Accordion: FC = () => {
               onClick={handleShowAccordion}
               className="accordion__button"
             >
-              <div className="accordion__icon">
-                <Icon iconName="FaMugHot" />
+              <div className="accordion__title">
+                {category.icon && (
+                  <div className="accordion__icon">
+                    <Icon iconName={category.icon} />
+                  </div>
+                )}
+                {category.name}
               </div>
-              <div className="accordion__title">{category.name}</div>
+              <FaPlus className="button__icon" />
             </button>
             <div className="accordion__content">
               {products.map(
