@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import * as FontAwesome from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
 import './styles.css';
@@ -51,7 +52,9 @@ const Accordion: FC = () => {
 
   const handleShowAccordion = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.currentTarget.classList.toggle('accordion__button--is-open');
+      event.currentTarget
+        .querySelector('.button__icon')
+        ?.classList.toggle('button__icon--is-open');
       const content = event.currentTarget.nextElementSibling as HTMLElement;
 
       if (content.style.maxHeight) {
@@ -73,12 +76,15 @@ const Accordion: FC = () => {
               onClick={handleShowAccordion}
               className="accordion__button"
             >
-              {category.icon && (
-                <div className="accordion__icon">
-                  <Icon iconName={category.icon} />
-                </div>
-              )}
-              <div className="accordion__title">{category.name}</div>
+              <div className="accordion__title">
+                {category.icon && (
+                  <div className="accordion__icon">
+                    <Icon iconName={category.icon} />
+                  </div>
+                )}
+                {category.name}
+              </div>
+              <FaPlus className="button__icon" />
             </button>
             <div className="accordion__content">
               {products.map(
