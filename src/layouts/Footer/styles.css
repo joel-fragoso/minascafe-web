@@ -60,9 +60,7 @@
   vertical-align: -0.175rem;
 }
 
-
 @media (min-width: 767px) {
-
   .footer__inner {
     width: 68rem;
     margin-left: auto;
