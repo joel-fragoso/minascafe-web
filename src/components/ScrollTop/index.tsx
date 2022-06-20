@@ -1,43 +1,42 @@
-import { FC } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 import './styles.css';
 
-let button: HTMLButtonElement;
-
-const setButtonRef = (element: HTMLButtonElement) => {
-  button = element;
-};
-
-function scroll() {
-  if (button) {
-    if (window.scrollY !== 0) {
-      button.style.visibility = 'visible';
-      button.style.opacity = '1';
-    } else {
-      button.style.visibility = 'hidden';
-      button.style.opacity = '0';
-    }
-  }
-}
-
-function scrollTop() {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
-}
-
-document.addEventListener('scroll', scroll);
-
 const ScrollTop: FC = () => {
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    function scroll() {
+      if (!buttonRef.current) {
+        return;
+      }
+      if (window.scrollY !== 0) {
+        buttonRef.current.style.visibility = 'visible';
+        buttonRef.current.style.opacity = '1';
+      } else {
+        buttonRef.current.style.visibility = 'hidden';
+        buttonRef.current.style.opacity = '0';
+      }
+    }
+
+    document.addEventListener('scroll', scroll);
+  }, []);
+
+  const handleScrollTop = useCallback(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <div>
       <button
         type="button"
         className="scroll-top"
-        ref={setButtonRef}
-        onClick={scrollTop}
+        ref={buttonRef}
+        onClick={handleScrollTop}
       >
         <FaArrowUp className="scroll-top__icon" />
       </button>
