@@ -54,12 +54,6 @@
   border-top: 1px solid var(--color-gray-brown);
 }
 
-.fa-heart {
-  box-sizing: content-box;
-  display: inline-block;
-  vertical-align: -0.175rem;
-}
-
 @media (min-width: 767px) {
   .footer__inner {
     width: 68rem;

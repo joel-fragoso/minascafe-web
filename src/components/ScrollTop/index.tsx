@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useRef } from 'react';
-import { FaArrowUp } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styles.css';
 
 const ScrollTop: FC = () => {
@@ -38,7 +38,10 @@ const ScrollTop: FC = () => {
         ref={buttonRef}
         onClick={handleScrollTop}
       >
-        <FaArrowUp className="scroll-top__icon" />
+        <FontAwesomeIcon
+          className="scroll-top__icon"
+          icon={{ prefix: 'fas', iconName: 'arrow-up' }}
+        />
       </button>
     </div>
   );

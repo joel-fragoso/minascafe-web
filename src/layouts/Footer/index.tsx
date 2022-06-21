@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { FaFacebookF, FaInstagram, FaHeart } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styles.css';
 
 const Footer: FC = () => {
@@ -13,7 +13,10 @@ const Footer: FC = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaFacebookF className="footer__icon" />
+            <FontAwesomeIcon
+              className="footer__icon"
+              icon={{ prefix: 'fab', iconName: 'facebook-f' }}
+            />
           </a>
           <a
             className="footer__link"
@@ -21,11 +24,16 @@ const Footer: FC = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaInstagram className="footer__icon" />
+            <FontAwesomeIcon
+              className="footer__icon"
+              icon={{ prefix: 'fab', iconName: 'instagram' }}
+            />
           </a>
         </div>
         <div className="footer__copyright">
-          © 2021 - Feito com <FaHeart className="fa-heart" /> por Joel Fragoso
+          © 2021 - Feito com{' '}
+          <FontAwesomeIcon icon={{ prefix: 'fas', iconName: 'heart' }} /> por
+          Joel Fragoso
         </div>
       </div>
     </footer>
