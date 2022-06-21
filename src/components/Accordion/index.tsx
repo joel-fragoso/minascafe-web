@@ -1,21 +1,10 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
-import * as FontAwesome from 'react-icons/fa';
-import { FaPlus } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
-import Loading from '../Loading';
 import './styles.css';
-
-interface IFontAwesomeProps {
-  iconName: string;
-}
-
-const Icon = ({ iconName }: IFontAwesomeProps) => {
-  const icon = React.createElement(
-    FontAwesome[iconName as keyof typeof FontAwesome],
-  );
-  return icon;
-};
+import Loading from '../Loading';
 
 interface ICategory {
   id: string;
@@ -89,12 +78,20 @@ const Accordion: FC = () => {
               <div className="accordion__title">
                 {category.icon && (
                   <div className="accordion__icon">
-                    <Icon iconName={category.icon} />
+                    <FontAwesomeIcon
+                      icon={{
+                        prefix: 'fas',
+                        iconName: category.icon as IconName,
+                      }}
+                    />
                   </div>
                 )}
                 {category.name}
               </div>
-              <FaPlus className="button__icon" />
+              <FontAwesomeIcon
+                className="button__icon"
+                icon={{ prefix: 'fas', iconName: 'plus' }}
+              />
             </button>
             <div className="accordion__content">
               {products.map(
