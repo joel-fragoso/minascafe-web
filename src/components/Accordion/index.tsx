@@ -3,6 +3,7 @@ import * as FontAwesome from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
+import Loading from '../Loading';
 import './styles.css';
 
 interface IFontAwesomeProps {
@@ -32,18 +33,23 @@ interface IProduct {
 const Accordion: FC = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function getCategories() {
       const response = await api.get('/categorias');
 
       setCategories(response.data.data);
+
+      setLoading(false);
     }
 
     async function getProducts() {
       const response = await api.get('/produtos');
 
       setProducts(response.data.data);
+
+      setLoading(false);
     }
 
     getCategories();
@@ -65,6 +71,10 @@ const Accordion: FC = () => {
     },
     [],
   );
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="accordion">
