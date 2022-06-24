@@ -1,49 +1,17 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
-import './styles.css';
 import Loading from '../Loading';
-
-interface ICategory {
-  id: string;
-  name: string;
-  icon: string;
-}
-
-interface IProduct {
-  id: string;
-  name: string;
-  price: number;
-  category: ICategory;
-}
+import { useLoading } from '../../hooks/loading';
+import { ICategory, useCategories } from '../../hooks/categories';
+import { IProduct, useProducts } from '../../hooks/products';
+import './styles.css';
 
 const Accordion: FC = () => {
-  const [categories, setCategories] = useState<ICategory[]>([]);
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    async function getCategories() {
-      const response = await api.get('/categorias');
-
-      setCategories(response.data.data);
-
-      setLoading(false);
-    }
-
-    async function getProducts() {
-      const response = await api.get('/produtos');
-
-      setProducts(response.data.data);
-
-      setLoading(false);
-    }
-
-    getCategories();
-    getProducts();
-  }, []);
+  const { loading } = useLoading();
+  const categories = useCategories();
+  const products = useProducts();
 
   const handleShowAccordion = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
