@@ -22,18 +22,19 @@ const LoadingContext = createContext<ILoadingContext>({} as ILoadingContext);
 export const LoadingProvider: FC<ILoadingProviderProps> = ({
   children,
 }: ILoadingProviderProps) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleLoading = useCallback((value: boolean) => {
     setLoading(value);
   }, []);
 
-  const valueMemo = useMemo(() => {
-    return { loading, handleLoading };
-  }, [loading, handleLoading]);
+  const loadingMemo = useMemo(
+    () => ({ loading, handleLoading }),
+    [loading, handleLoading],
+  );
 
   return (
-    <LoadingContext.Provider value={valueMemo}>
+    <LoadingContext.Provider value={loadingMemo}>
       {children}
     </LoadingContext.Provider>
   );
