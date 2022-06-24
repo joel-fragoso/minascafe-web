@@ -21,7 +21,7 @@ interface ICategoryProviderProps {
 
 const CategoryContext = createContext<ICategory[]>([]);
 
-export const CategoryProvide: FC<ICategoryProviderProps> = ({
+export const CategoryProvider: FC<ICategoryProviderProps> = ({
   children,
 }: ICategoryProviderProps) => {
   const [categories, setCategories] = useState<ICategory[]>([]);
