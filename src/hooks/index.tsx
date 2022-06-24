@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { CategoryProvide } from './categories';
+import { CategoryProvider } from './categories';
 import { LoadingProvider } from './loading';
 import { ProductProvide } from './products';
 
@@ -12,9 +12,9 @@ const AppProvider: FC<IAppProviderProps> = ({
 }: IAppProviderProps) => {
   return (
     <LoadingProvider>
-      <CategoryProvide>
+      <CategoryProvider>
         <ProductProvide>{children}</ProductProvide>
-      </CategoryProvide>
+      </CategoryProvider>
     </LoadingProvider>
   );
 };
