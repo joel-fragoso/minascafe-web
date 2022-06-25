@@ -1,5 +1,11 @@
 # Minas Café - Website do Cardápio
 
+[Como Clonar](#️como-clonar-o-projeto) |
+[Como Instalar](#️como-instalar-as-dependências) |
+[Como Executar](#️como-executar-a-aplicação)
+
+---
+
 ### 💿️ Como clonar o projeto:
 ```bash
 # SSH
